@@ -1,12 +1,14 @@
 #pragma once
 
+#include <iostream>
+#include <stdexcept>
+#include <vector>
+
 template <typename T>
-T *finder(T intcont, int ig)
+typename T::iterator finder(T &intcont, int ig)
 {
-	for (int i = 0; i < intcont.size(); i++)
-	{
-		if (intcont[i] == ig)
-			return (*intcont[i]);
-	}
-	return "";
+	typename T::iterator it = std::find(intcont.begin(), intcont.end(), value);
+	if (it == intcont.end())
+		throw std::runtime_error("Value not found");
+	return it;
 }

@@ -1,7 +1,4 @@
 #include "easyfind.hpp"
-#include <iostream>
-#include <stdexcept>
-#include <vector>
 
 int main(void)
 {
@@ -17,7 +14,16 @@ int main(void)
 		int tofind = 3;
 		std::vector<int>::iterator res = finder(cont, tofind);
 		
-		std::cout << "Value " << tofind << " found at index: " << 
-	}
+		std::cout << "Value " << tofind << " found at index: " << std::distance(cont.begin(), res) << std::endl;
 
+		int tofindnot = 0;
+		res = finder(cont, tofindnot);
+		std::cout << "Value " << tofind << " found at index: " << std::distance(cont.begin(), res) << std::endl;
+
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+	return (0);
 }
